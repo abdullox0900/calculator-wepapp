@@ -1,3 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    min-height: 100vh;
+    font-family: "Squada One", sans-serif;
+    background-image: url('./assets/img/body.png');
+    background-repeat: no-repeat;
+    background-size: 300px;
+    background-position: bottom;
+}
+
+.glass {
+    background: rgba(0, 0, 0, 0.71);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10.2px);
+    -webkit-backdrop-filter: blur(10.2px);
+    border: 1px solid rgba(0, 0, 0, 0.21);
+}

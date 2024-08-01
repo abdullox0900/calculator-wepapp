@@ -27,4 +27,4 @@ module.exports = {
     'no-console': 'warn', // Konsol xabarlariga ogohlantirish berish
     'no-debugger': 'warn', // Debugger uchun ogohlantirish
   },
-};
+}

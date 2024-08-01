@@ -1,66 +1,69 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
+import ImgCalculate from '../src/assets/img/calculator.png'
 import './App.css'
 
 
 function App() {
 
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [darkMode, setDarkMode] = useState<boolean>(false)
 
   useEffect(() => {
     if (darkMode) {
-      document.documentElement.classList.add('dark');
-      document.body.style.backgroundColor = '#374151'
+      document.documentElement.classList.add('dark')
+      document.body.style.backgroundColor = '#1f2124'
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove('dark')
       document.body.style.backgroundColor = '#fff'
     }
-  }, [darkMode]);
+  }, [darkMode])
 
-  const [amount, setAmount] = useState('');
-  const [rubles, setRubles] = useState<number | null>(null);
-  const exchangeRate = 4.5;
+  const [amount, setAmount] = useState('')
+  const [rubles, setRubles] = useState<number | null>(null)
+  const exchangeRate = 4.5
 
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+    const value = e.target.value
     if (/^\d*\.?\d*$/.test(value)) { // Raqamlar va nuqtaga ruxsat beriladi
-      setAmount(value);
-      setRubles(null);
+      setAmount(value)
+      setRubles(null)
     }
-  };
+  }
 
   const handleConvert = () => {
-    const numAmount = Number(amount);
+    const numAmount = Number(amount)
     if (numAmount > 0) {
-      const calculatedRubles = numAmount * exchangeRate;
-      setRubles(calculatedRubles);
+      const calculatedRubles = numAmount * exchangeRate
+      setRubles(calculatedRubles)
     } else {
-      setRubles(null);
+      setRubles(null)
     }
-  };
+  }
 
   const handleOrder = () => {
     if (rubles !== null) {
-      console.log('Placing order:', amount, 'liras,', rubles, 'rubles');
-      alert(`Заказ на сумму ${amount} лир (${rubles.toFixed(2)} рублей) оформлен!`);
-      setAmount('');
-      setRubles(null);
+      console.log('Placing order:', amount, 'liras,', rubles, 'rubles')
+      alert(`Заказ на сумму ${amount} лир (${rubles.toFixed(2)} рублей) оформлен!`)
+      setAmount('')
+      setRubles(null)
     }
-  };
+  }
 
   return (
     <>
-
-      <div className="bg-white shadow-md rounded-lg p-6 max-w-sm mx-auto dark:bg-gray-800 mt-[25px]">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold dark:text-white">Tolik Store</h2>
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="p-3 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded-lg shadow-lg focus:outline-none"
-          >
-            {darkMode ? '🌙' : '☀️'}
-          </button>
+      <button
+        onClick={() => setDarkMode(!darkMode)}
+        className="p-3 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded-lg shadow-lg focus:outline-none"
+      >
+        {darkMode ? '🌙' : '☀️'}
+      </button>
+      <div className="dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[25.2px] border rounded-2xl border-solid dark:border-[rgba(169,169,169,0.1)] p-6 max-w-sm mx-auto mt-[25px]">
+        <div className="flex justify-between items-center">
+          <div>
+            <h2 className="text-[26px] font-bold dark:text-white mb-2">Ladyshiva2077</h2>
+            <h3 className="font-semibold mb-4 dark:text-white">Калькулятор</h3>
+          </div>
+          <img src={ImgCalculate} alt="img" width={100} height={200} />
         </div>
-        <h3 className="text-lg font-semibold mb-4 dark:text-white">Калькулятор</h3>
         <div className="mb-4">
           <label htmlFor="amount" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
             Введите сумму в лирах:
