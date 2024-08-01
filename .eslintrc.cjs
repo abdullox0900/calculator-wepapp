@@ -13,11 +13,11 @@ module.exports = {
       jsx: true,
     },
   },
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
+  // settings: {
+  //   react: {
+  //     version: 'detect',
+  //   },
+  // },
   rules: {
     // Custom ESLint rules
     'react/prop-types': 'off', // TypeScript foydalanganda kerak emas

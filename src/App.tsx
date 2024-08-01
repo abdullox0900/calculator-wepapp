@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import ImgCalculate from '../src/assets/img/calculator.png'
 import './App.css'
+import calculatorImage from './assets/img/calculator.png'
+
 
 
 function App() {
@@ -62,7 +63,7 @@ function App() {
             <h2 className="text-[26px] font-bold dark:text-white mb-2">Ladyshiva2077</h2>
             <h3 className="font-semibold mb-4 dark:text-white">Калькулятор</h3>
           </div>
-          <img src={ImgCalculate} alt="img" width={100} height={200} />
+          <img src={calculatorImage} alt="img" width={100} height={200} />
         </div>
         <div className="mb-4">
           <label htmlFor="amount" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
