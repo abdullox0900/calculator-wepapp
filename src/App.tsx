@@ -9,8 +9,10 @@ function App() {
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
+      document.body.style.backgroundColor = '#374151'
     } else {
       document.documentElement.classList.remove('dark');
+      document.body.style.backgroundColor = '#fff'
     }
   }, [darkMode]);
 
@@ -48,19 +50,19 @@ function App() {
   return (
     <>
 
-      <div className="bg-white shadow-md rounded-lg p-6 max-w-sm mx-auto">
+      <div className="bg-white shadow-md rounded-lg p-6 max-w-sm mx-auto dark:bg-gray-800 mt-[25px]">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold">Tolik Store</h2>
+          <h2 className="text-xl font-bold dark:text-white">Tolik Store</h2>
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className="p-4 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded-lg shadow-lg focus:outline-none"
+            className="p-3 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded-lg shadow-lg focus:outline-none"
           >
-            {darkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
+            {darkMode ? '🌙' : '☀️'}
           </button>
         </div>
-        <h3 className="text-lg font-semibold mb-4">Калькулятор</h3>
+        <h3 className="text-lg font-semibold mb-4 dark:text-white">Калькулятор</h3>
         <div className="mb-4">
-          <label htmlFor="amount" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="amount" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
             Введите сумму в лирах:
           </label>
           <input
@@ -80,8 +82,8 @@ function App() {
         </button>
         {rubles !== null && (
           <div className="mb-4 text-sm">
-            <p>Курс обмена: 1 лира = {exchangeRate} рублей</p>
-            <p className="font-semibold">Стоимость в рублях: {rubles.toFixed(2)}</p>
+            <p className='dark:text-white'>Курс обмена: 1 лира = {exchangeRate} рублей</p>
+            <p className="font-semibold dark:text-white">Стоимость в рублях: <span className='text-green-600 font-bold'>{rubles.toFixed(2)}</span></p>
           </div>
         )}
         <button
