@@ -127,7 +127,7 @@ function App() {
         )
         }
         <a
-          href='https://t.me/s/LadyShiva90'
+          href='https://t.me/s/Ladyshiva2077'
           // onClick={handleOrder}
           className="w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 transition duration-300 flex items-center justify-center"
         // disabled={!selectedCountry || (price.tl === null && price.uah === null)}
