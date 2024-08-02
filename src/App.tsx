@@ -25,15 +25,18 @@ function App() {
     let tlPrice: number
     let uahPrice: number
 
-    if (amount < 1000) {
-      tlPrice = amount / 3.5
-      uahPrice = amount / 3.2
-    } else if (amount < 2000) {
-      tlPrice = amount / 3.3
-      uahPrice = amount / 2.75
+    if (amount <= 1000) {
+      tlPrice = amount * 3.5
+    } else if (amount <= 2000) {
+      tlPrice = amount * 3.3
     } else {
-      tlPrice = amount / 3.1
-      uahPrice = amount / 2.75
+      tlPrice = amount * 3.1
+    }
+
+    if (amount <= 1000) {
+      uahPrice = amount * 3.2
+    } else {
+      uahPrice = amount * 2.75
     }
 
     return { tl: tlPrice, uah: uahPrice }
