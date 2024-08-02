@@ -138,7 +138,7 @@ function App() {
           Оформить заказ
         </a>
         <a
-          href='https://t.me/s/LadyShiva90'
+          href='https://t.me/s/Ladyshiva2077'
           // onClick={handleOrder}
           className="w-full bg-[#229ED9] mt-3 text-white py-2 rounded-md hover:bg-[#229fd9a2] transition duration-300 flex items-center justify-center"
         // disabled={!selectedCountry || (price.tl === null && price.uah === null)}
