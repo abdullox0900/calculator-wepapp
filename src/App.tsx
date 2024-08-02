@@ -115,8 +115,8 @@ function App() {
               Цена в {selectedCountry === 'turkey' ? 'Турции' : 'Украине'}:
               <span className='text-green-600 font-bold'>
                 {selectedCountry === 'turkey'
-                  ? ` ${price.tl?.toFixed(2)} TL`
-                  : ` ${price.uah?.toFixed(2)} UAH`
+                  ? ` ${price.tl?.toFixed(2)} рубль`
+                  : ` ${price.uah?.toFixed(2)} рубль`
                 }
               </span >
             </p >
