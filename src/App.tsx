@@ -1,106 +1,140 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import calculatorImage from './assets/img/calculator.png'
-
-
+import { useTelegramTheme } from './context/TelegramThemeProvider'
 
 function App() {
+  // const [darkMode, setDarkMode] = useState<boolean>(false)
+  const [amount, setAmount] = useState('')
+  const [price, setPrice] = useState<{ tl: number | null, uah: number | null }>({ tl: null, uah: null })
+  const [selectedCountry, setSelectedCountry] = useState<'turkey' | 'ukraine' | null>(null)
 
-  const [darkMode, setDarkMode] = useState<boolean>(false)
+  const theme = useTelegramTheme()
 
   useEffect(() => {
-    if (darkMode) {
+    if (theme == 'dark') {
       document.documentElement.classList.add('dark')
       document.body.style.backgroundColor = '#1f2124'
     } else {
       document.documentElement.classList.remove('dark')
       document.body.style.backgroundColor = '#fff'
     }
-  }, [darkMode])
+  }, [theme])
 
-  const [amount, setAmount] = useState('')
-  const [rubles, setRubles] = useState<number | null>(null)
-  const exchangeRate = 4.5
+  const calculatePrices = (amount: number): { tl: number, uah: number } => {
+    let tlPrice: number
+    let uahPrice: number
+
+    if (amount < 1000) {
+      tlPrice = amount / 3.5
+      uahPrice = amount / 3.2
+    } else if (amount < 2000) {
+      tlPrice = amount / 3.3
+      uahPrice = amount / 2.75
+    } else {
+      tlPrice = amount / 3.1
+      uahPrice = amount / 2.75
+    }
+
+    return { tl: tlPrice, uah: uahPrice }
+  }
 
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
-    if (/^\d*\.?\d*$/.test(value)) { // Raqamlar va nuqtaga ruxsat beriladi
+    if (/^\d*\.?\d*$/.test(value)) {
       setAmount(value)
-      setRubles(null)
+      setPrice({ tl: null, uah: null })
+      setSelectedCountry(null)
     }
   }
 
-  const handleConvert = () => {
+  const handleCalculate = (country: 'turkey' | 'ukraine') => {
     const numAmount = Number(amount)
     if (numAmount > 0) {
-      const calculatedRubles = numAmount * exchangeRate
-      setRubles(calculatedRubles)
+      const calculatedPrices = calculatePrices(numAmount)
+      setPrice(calculatedPrices)
+      setSelectedCountry(country)
     } else {
-      setRubles(null)
+      setPrice({ tl: null, uah: null })
+      setSelectedCountry(null)
     }
   }
 
-  const handleOrder = () => {
-    if (rubles !== null) {
-      console.log('Placing order:', amount, 'liras,', rubles, 'rubles')
-      alert(`Заказ на сумму ${amount} лир (${rubles.toFixed(2)} рублей) оформлен!`)
-      setAmount('')
-      setRubles(null)
-    }
-  }
+  // const handleOrder = () => {
+  //   if (selectedCountry && (price.tl !== null || price.uah !== null)) {
+  //     const selectedPrice = selectedCountry === 'turkey' ? price.tl : price.uah
+  //     const currency = selectedCountry === 'turkey' ? 'TL' : 'UAH'
+  //     console.log('Placing order:', amount, 'rubles,', selectedPrice, currency)
+  //     // alert(`Заказ на сумму ${amount} рублей (${selectedPrice?.toFixed(2)} ${currency})`)
+  //     setAmount('')
+  //     setPrice({ tl: null, uah: null })
+  //     setSelectedCountry(null)
+  //   }
+  // }
 
   return (
     <>
-      <button
-        onClick={() => setDarkMode(!darkMode)}
-        className="p-3 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded-lg shadow-lg focus:outline-none"
-      >
-        {darkMode ? '🌙' : '☀️'}
-      </button>
-      <div className="dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[25.2px] border rounded-2xl border-solid dark:border-[rgba(169,169,169,0.1)] p-6 max-w-sm mx-auto mt-[25px]">
+      <div className={`${theme == 'dark' ? 'dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)] dark:border-[rgba(169,169,169,0.1)]' : ''} backdrop-blur-[25.2px] border rounded-2xl border-solid p-6 max-w-sm mx-auto mt-[25px]`}>
         <div className="flex justify-between items-center">
           <div>
-            <h2 className="text-[26px] font-bold dark:text-white mb-2">Ladyshiva2077</h2>
-            <h3 className="font-semibold mb-4 dark:text-white">Калькулятор</h3>
+            <h2 className={`${theme == 'dark' ? 'dark:text-white' : ''} text-[26px] font-bold mb-2`}>Ladyshiva2077</h2>
+            <h3 className={`${theme == 'dark' ? 'dark:text-white' : ''} font-semibold mb-4`}>Калькулятор</h3>
           </div>
           <img src={calculatorImage} alt="img" width={100} height={200} />
         </div>
         <div className="mb-4">
-          <label htmlFor="amount" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
-            Введите сумму в лирах:
+          <label htmlFor="amount" className={`${theme == 'dark' ? 'dark:text-gray-200' : ''} block text-sm font-medium text-gray-700 mb-1`}>
+            Введите сумму:
           </label>
           <input
             type="text"
             id="amount"
             value={amount}
             onChange={handleAmountChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border font-sans border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Введите сумму"
           />
         </div>
-        <button
-          onClick={handleConvert}
-          className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300 mb-2"
-        >
-          Конвертировать
-        </button>
-        {rubles !== null && (
+        <div className="flex space-x-2 mb-4">
+          <button
+            onClick={() => handleCalculate('turkey')}
+            className="flex-1 bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300"
+          >
+            Турция 🇹🇷
+          </button>
+          <button
+            onClick={() => handleCalculate('ukraine')}
+            className="flex-1 bg-yellow-500 text-white py-2 rounded-md hover:bg-yellow-600 transition duration-300"
+          >
+            Украина 🇺🇦
+          </button>
+        </div>
+        {selectedCountry && (
           <div className="mb-4 text-sm">
-            <p className='dark:text-white'>Курс обмена: 1 лира = {exchangeRate} рублей</p>
-            <p className="font-semibold dark:text-white">Стоимость в рублях: <span className='text-green-600 font-bold'>{rubles.toFixed(2)}</span></p>
-          </div>
-        )}
-        <button
-          onClick={handleOrder}
+            <p className={`${theme == 'dark' ? 'dark:text-white' : ''} font-semibold`}>
+              Цена в {selectedCountry === 'turkey' ? 'Турции' : 'Украине'}:
+              <span className='text-green-600 font-bold'>
+                {selectedCountry === 'turkey'
+                  ? ` ${price.tl?.toFixed(2)} TL`
+                  : ` ${price.uah?.toFixed(2)} UAH`
+                }
+              </span >
+            </p >
+          </div >
+        )
+        }
+        <a
+          href='https://t.me/s/LadyShiva90'
+          // onClick={handleOrder}
           className="w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 transition duration-300 flex items-center justify-center"
-          disabled={rubles === null}
+        // disabled={!selectedCountry || (price.tl === null && price.uah === null)}
         >
           <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
           </svg>
-          Сделать заказ
-        </button>
-      </div>
+          Оформить заказ
+        </a>
+      </div >
     </>
   )
 }
