@@ -7,11 +7,6 @@
 body {
     min-height: 100vh;
     font-family: "Roboto", sans-serif;
-    background-image: url('./assets/img/body-img.jpg');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: bottom;
-    background-attachment: fixed;
 }
 
 .glass {

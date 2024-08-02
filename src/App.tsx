@@ -127,7 +127,7 @@ function App() {
         )
         }
         <a
-          href='https://t.me/s/Ladyshiva2077'
+          href='https://t.me/s/LadyShiva90'
           // onClick={handleOrder}
           className="w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 transition duration-300 flex items-center justify-center"
         // disabled={!selectedCountry || (price.tl === null && price.uah === null)}
@@ -136,6 +136,25 @@ function App() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
           </svg>
           Оформить заказ
+        </a>
+        <a
+          href='https://t.me/s/LadyShiva90'
+          // onClick={handleOrder}
+          className="w-full bg-[#229ED9] mt-3 text-white py-2 rounded-md hover:bg-[#229fd9a2] transition duration-300 flex items-center justify-center"
+        // disabled={!selectedCountry || (price.tl === null && price.uah === null)}
+        >
+          <svg width={20} height={20} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+            <rect width={100} height={100} fill="url(#pattern0_441_2)" />
+            <defs>
+              <pattern id="pattern0_441_2" patternContentUnits="objectBoundingBox" width={1} height={1}>
+                <use xlinkHref="#image0_441_2" transform="scale(0.01)" />
+              </pattern>
+              <image id="image0_441_2" width={100} height={100} xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFAUlEQVR4nO2dSYhcRRiAi8GIURMTNYkScYsG1xk8C25xxYniQTAGBQ9uV2/ePBiJcQlqLllE0LjFg3owgome3EAJRAm4C5M4wxhRyUBitvnkxz/QtDOZt/zdVfXe/8FcuvvV+6urX9W/TwiO4ziO4ziO4ziO4ziO4ziO4zghAHOBIeAGYDlwj/4t19fkvbn+XfUA4BTgFmA18AnwG8WRz36s194sY/kiVVuEU4H7gW3AIew4CHwE3OeLU2whlgKbgAl6z4Tea6k/Nf9fiCuAt4Cj9J8jwJvA5a1fGD0fntCtJDaHgRdaqwyoRlTmgO4Xe4Dh0BaAE/SpiLE9FWVSn5YTQ5MBzgK+JB++ABaFJgJcAPxAfvwCXByaBDAIjJEvYzKH0ASACzNfjGP8nr3NAiwAvqc5/CTnYMgR0VAyO8CL8jkwK+QG8DzNZU3I0OgTXb6pTAK3hxwA5qi123R2i1c6pA6wlvawJmTgtRUnXVs4BFwaUgV4m/bxekgR4CKNLbSNI0m6VjT6lpPVvQV4HHgR2F9zvA0hwRh4P8KudRB3/weirgIDXfI/XGtk2AecHFJBExJS5Q/gGWDJceS/yuA+K0MqaHZIanwFPACcVED+ZQb3+zCkgDyqicTEhX/0bLix5BweoT4Hk9i2NIktNns0LLyg4hyeNZKj1A+hJ2hWYKxDehtwt8Tpa87hfSOZVtl9s9UnI+md/eRP/UUvMZzDLiPZtlvJVGcy/Url2Qk8VHSf1hi+PEHrZvjcAHDASMbdIYEs9F5yGHgHuLakXA+qbTA+U0YicK6xWz6eB9hIf5+KceBJ4JyS8pytxh8ax7+swDVSvmDJUIgFcL3xZL7WbWl2BVnkcN9bZjGMrPRurgmRI4MW+rvYDldXlGEesL5jvBFxdJa4Xqx4S+JFEoEVNQT/S22HhTV/EKMdY/4KnF9yjHexZUXIcEFeAebXuO984NWuMX+UA7rCWN/SoAWpsmVN1DHkgDu6ngrhO2BxhbEGDFzv3cTLnAeuq6gaPlp2UYDTgdemGG9X1eQ14DzsKaWip6T2yuH7EnDTTGn/wJ3TpKN+U/MMuhV7hmIbhhb5V39rSdu9x2wP4DR1XL43zTU7gDNryv8YtsQ1DHVSMaqgdtRRCnoYdo7rOonkXKSo0VdA9s+wZXtb3e/zjGQXz7ElSbjfpUNCv1lrILf4vaxZZvOt1i9tjhHCfUNU4RpyW8TROzlQxQfXE7RdRQxGxThNRMPaGlIhgTSgLcAZJWWWJ6wZLpNptq3YiXJjYkCWkFncLVZMJNdpCNhIGrwsRmWBTEvLxgXrQ2pI0kFCydajxztbgLsan2wtqPsjFSYlCXqqZjJyABveZ3NIFUkoSLBgZ69qVIs7YjiThgU7l4SUAZ4jXfYbj/d0SB0v+kwQiZq1oCz6tpAThgnMKbI65Ia0n9B+U03j0yxba3Q0n7G0iFNoPrOoCe2ZurNEcmQ8WQOwhQ3MRoErQ5PQ8oAce2f9XCY1NStk/9V+Uzkd4AtDk8msTeys0Ba0gF9aHKXGSHZGn3FJdWqtxueEtiMtjqSrDnHiKXLPzcl7bSN2FNqg9YG9Zp8W+phV8zZ9K1sp7Sq0O4Nlqs5WzSGO33UhR4DZ0iEBeEpSNUsqAiN6zSrNw0ojb6pp8F+SwqDWpwx3/FOwYX1tMIsGlY7jOI7jOI7jOI7jOI7jOI7jhD7wL9UGIJV9txW0AAAAAElFTkSuQmCC" />
+            </defs>
+          </svg>
+
+
+          Telegram
         </a>
       </div >
     </>
